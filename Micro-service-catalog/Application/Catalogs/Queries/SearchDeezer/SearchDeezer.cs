@@ -23,8 +23,9 @@ public class SearchDeezerHandler : IRequestHandler<SearchDeezerQuery, List<Deeze
 
         foreach (DeezerDto Deez in resultDeezer.Data)
         {
-
+            deezer.Add(Deez);
         }
+
 
         return deezer;
     }

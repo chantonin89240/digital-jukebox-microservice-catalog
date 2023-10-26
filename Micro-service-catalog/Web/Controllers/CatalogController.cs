@@ -15,7 +15,7 @@ public class CatalogController : ControllerBase
         _mediator = mediator;
     }
 
-    [HttpGet("{search}")]
+    [HttpGet("search/{search}")]
     public async Task<IActionResult> GetSearchDeezer(string search)
     {
         var query = new Application.Catalogs.Queries.SearchDeezer.SearchDeezerQuery(search);
