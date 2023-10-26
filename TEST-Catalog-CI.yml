@@ -7,7 +7,9 @@ trigger:
 - dev
 
 pool:
-  vmImage: 'windows-latest'
+  name: default
+  demands:
+    - agent.name -equals debian
 
 variables:
   solution: '**/*.sln'
@@ -16,6 +18,11 @@ variables:
 
 steps:
 - task: NuGetToolInstaller@1
+
+- task: UseDotNet@2
+  displayName: 'Use .NET Core sdk 7.0.x'
+  inputs:
+    version: 7.0.x
 
 - task: NuGetCommand@2
   inputs:
