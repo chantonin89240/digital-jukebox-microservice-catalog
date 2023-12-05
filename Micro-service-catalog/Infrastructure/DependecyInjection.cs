@@ -1,12 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FluentValidation;
+using Infrastructure.Services;
+using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
+using Application.Common.Interfaces;
 
-namespace Infrastructure
+namespace Infrastructure;
+
+public static class DependecyInjection
 {
-    internal class DependecyInjection
+    public static IServiceCollection AddInfrastructureServices(this IServiceCollection services)
     {
+        services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+
+        services.AddScoped<IDeezerService, DeezerService>();
+
+        return services;
     }
+    
 }
