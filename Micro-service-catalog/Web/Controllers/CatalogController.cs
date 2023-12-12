@@ -27,19 +27,19 @@ public class CatalogController : ControllerBase
         return Ok(result);
     }
 
-    //// retour toutes les track d'un catalog
-    //[HttpGet("/{getCatalog}")]
-    //public async Task<IActionResult> GetCatalog(int idBar)
-    //{
-    //    var query = new Application.Catalogs.Queries.SearchDeezer.SearchDeezerQuery(search);
-    //    var result = await _mediator.Send(query);
+    // retour toutes les track d'un catalog
+    [HttpGet("/{idbar}")]
+    public async Task<IActionResult> GetTrackCatalog(int idbar)
+    {
+        //var query = new Application.Catalogs.Queries.SearchDeezer.SearchDeezerQuery(search);
+        //var result = await _mediator.Send(query);
 
-    //    return Ok(result);
-    //}
+        return Ok();
+    }
 
     // retourne le track du catalog
     [HttpGet("/bar/{idbar}/track/{idtrack}")]
-    public async Task<IActionResult> GetCatalog(int idbar, int idtrack)
+    public async Task<IActionResult> GetTrackCatalogById(int idbar, int idtrack)
     {
         GetTrackByIdDto getTrackByIdDto = new GetTrackByIdDto() { IdBar = idbar, IdTrack = idtrack };
         var query = new GetTrackByIdQuery(getTrackByIdDto);
