@@ -60,7 +60,7 @@ public class CatalogController : ControllerBase
         }
         else
         {
-            return Conflict();
+            return NoContent();
         }
     }
 
