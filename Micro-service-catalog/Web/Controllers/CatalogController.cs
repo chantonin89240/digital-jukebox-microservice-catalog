@@ -28,7 +28,7 @@ public class CatalogController : ControllerBase
     }
 
     // retour toutes les track d'un catalog
-    [HttpGet("/{idbar}")]
+    [HttpGet("{idbar}")]
     public async Task<IActionResult> GetTrackCatalog(int idbar)
     {
         //var query = new Application.Catalogs.Queries.SearchDeezer.SearchDeezerQuery(search);
@@ -38,7 +38,7 @@ public class CatalogController : ControllerBase
     }
 
     // retourne le track du catalog
-    [HttpGet("/bar/{idbar}/track/{idtrack}")]
+    [HttpGet("bar/{idbar}/track/{idtrack}")]
     public async Task<IActionResult> GetTrackCatalogById(int idbar, int idtrack)
     {
         GetTrackByIdDto getTrackByIdDto = new GetTrackByIdDto() { IdBar = idbar, IdTrack = idtrack };

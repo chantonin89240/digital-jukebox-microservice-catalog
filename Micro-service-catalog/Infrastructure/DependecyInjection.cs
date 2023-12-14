@@ -22,7 +22,8 @@ public static class DependecyInjection
         //    return new SolrService(configuration.GetSection("Solr").GetSection("BaseUrl").Value);
         //});
 
-        var connectionString = "mongodb://root:root@localhost:27017/?retryWrites=true&w=majority";
+        //var connectionString = "mongodb://root:root@localhost:27017/?retryWrites=true&w=majority";
+        var connectionString = "mongodb+srv://toto:toto@clusterdigitaljukebox.yf8cuzj.mongodb.net/?connectTimeoutMS=120000&retryWrites=true&w=majority";
         var databaseName = "Catalog";
         services.AddSingleton<IMongoClient>(sp => new MongoClient(connectionString));
         services.AddScoped(sp =>
