@@ -3,6 +3,8 @@ using MediatR;
 using Application.Catalogs.Queries;
 using Application.Catalogs.Commands.AddSongCatalog;
 using Application.Catalogs.Queries.GetTrackById;
+using Domain.Entities;
+using Application.Catalogs.Queries.GetTrackByCatalog;
 
 namespace Web.Controllers;
 
@@ -29,12 +31,13 @@ public class CatalogController : ControllerBase
 
     // retour toutes les track d'un catalog
     [HttpGet("{idbar}")]
-    public async Task<IActionResult> GetTrackCatalog(int idbar)
+    public async Task<IActionResult> GetTrackByCatalog(int idbar)
     {
-        //var query = new Application.Catalogs.Queries.SearchDeezer.SearchDeezerQuery(search);
-        //var result = await _mediator.Send(query);
+        GetTrackByCatalogDto getTrackByCatalogDto = new GetTrackByCatalogDto() { IdBar = idbar };
+        var query = new GetTrackByCatalogQuery(getTrackByCatalogDto);
+        var result = await _mediator.Send(query);
 
-        return Ok();
+        return Ok(result);
     }
 
     // retourne le track du catalog
